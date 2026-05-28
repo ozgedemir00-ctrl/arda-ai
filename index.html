@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARDA AI - Gemini OS</title>
+    <style>
+        body { 
+            background-color: #131314; 
+            color: #e3e3e3; 
+            font-family: 'Segoe UI', sans-serif;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .chat-container { 
+            background-color: #1e1e20; 
+            border: 1px solid #303135; 
+            padding: 25px; 
+            border-radius: 24px; 
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .ai-logo {
+            font-size: 24px;
+            font-weight: 600;
+            background: linear-gradient(45deg, #4285f4, #9b51e0, #e8710a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .chat-box {
+            height: 250px;
+            overflow-y: auto;
+            border: 1px solid #303135;
+            background-color: #131314;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+        input { 
+            flex: 1;
+            padding: 12px; 
+            background: #131314; 
+            border: 1px solid #303135; 
+            color: #e3e3e3; 
+            border-radius: 100px;
+            outline: none;
+            padding-left: 20px;
+        }
+        button { 
+            background: linear-gradient(90deg, #1a73e8, #4285f4);
+            color: white; 
+            border: none; 
+            padding: 12px 24px; 
+            border-radius: 100px; 
+            font-weight: bold;
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <div class="ai-logo">✨ ARDA AI OS</div>
+        
+        <div class="chat-box" id="chatBox">
+            <div style="color: #4285f4; margin-bottom: 8px;"><b>ARDA AI:</b> Merhaba! Pydroid motoru web arayüzüne başarıyla bağlandı. Sana nasıl yardımcı olabilirim?</div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="ARDA AI'a bir şeyler yazın...">
+            <button onclick="mesajGonder()">Gönder</button>
+        </div>
+    </div>
+
+    <script>
+        function mesajGonder() {
+            var input = document.getElementById("userInput");
+            var chatBox = document.getElementById("chatBox");
+            
+            if(input.value.trim() !== "") {
+                chatBox.innerHTML += "<div style='margin-bottom: 8px; text-align: right;'><b>Sen:</b> " + input.value + "</div>";
+                input.value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+                setTimeout(function() {
+                    chatBox.innerHTML += "<div style='color: #4285f4; margin-bottom: 8px;'><b>ARDA AI:</b> Komut alındı. Web paneli üzerinden işlem yürütülüyor...</div>";
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+            }
+        }
+    </script>
+
+</body>
+</html>
