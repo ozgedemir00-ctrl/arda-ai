@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARDA AI - CONTROL PANEL</title>
+    <style>
+        body { background-color: #06090f; color: #2ea44f; font-family: monospace; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+        .box { border: 2px solid #238636; padding: 30px; border-radius: 12px; text-align: center; background-color: #0d1117; box-shadow: 0 0 20px rgba(35,134,54,0.5); width: 100%; max-width: 500px; }
+        input { padding: 12px; background: #06090f; border: 1px solid #30363d; color: #58a6ff; text-align: center; font-size: 16px; border-radius: 6px; margin-bottom: 15px; width: 90%; font-weight: bold; }
+        button { padding: 12px 24px; background: #238636; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; margin-top: 10px; }
+        button:hover { background: #2ea44f; }
+        .success-panel { display: none; text-align: left; }
+        .car-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 15px; margin-top: 15px; }
+        .car-title { color: #58a6ff; font-size: 18px; font-weight: bold; margin: 0 0 5px 0; }
+        .car-specs { color: #8b949e; font-size: 14px; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div id="login-screen">
+            <h2>🔒 ARDA AI OS</h2>
+            <p>Sisteme erişmek için giriş kodunu yazın:</p>
+            <input type="password" id="sifre-kutusu" placeholder="••••••••">
+            <br>
+            <button onclick="sistemeGir()">SİSTEME GİRİŞ YAP</button>
+        </div>
+
+        <div id="secret-screen" class="success-panel">
+            <h2 style="text-align: center; color: #58a6ff;">👑 ARDA AI MERKEZİ</h2>
+            <p style="text-align: center; color: #8b949e; font-size: 13px;">Erişim Sağlandı • Güvenli Hat</p>
+            <hr style="border-color: #30363d;">
+            
+            <h3 style="color: white; margin-top: 20px;">🏎️ Garaj ve Hypercar Verileri:</h3>
+
+            <div class="car-card">
+                <p class="car-title">Lamborghini Revuelto</p>
+                <p class="car-specs">V12 Hibrit Motor • 1015 Beygir • 0-100: 2.5 Saniye</p>
+            </div>
+
+            <div class="car-card">
+                <p class="car-title">Ferrari SF90 Stradale</p>
+                <p class="car-specs">V8 Twin-Turbo • 1000 Beygir • Hibrit Güç Canavarı</p>
+            </div>
+
+            <div class="car-card">
+                <p class="car-title">Koenigsegg Jesko</p>
+                <p class="car-specs">5.0L V8 • 1600 Beygir • Dünyanın En Hızlılarından</p>
+            </div>
+
+            <div class="car-card">
+                <p class="car-title">Nissan Skyline GT-R R34</p>
+                <p class="car-specs">RB26DETT Motor • Efsanevi Twin-Turbo JDM Kralı</p>
+            </div>
+
+            <button onclick="çıkışYap()" style="background: #da3637; margin-top: 25px;">SİSTEMDEN ÇIKIŞ YAP</button>
+        </div>
+    </div>
+
+    <script>
+        function sistemeGir() {
+            var girilenSifre = document.getElementById("sifre-kutusu").value;
+            if(girilenSifre === "ARDA-2026-PRO") {
+                document.getElementById("login-screen").style.display = "none";
+                document.getElementById("secret-screen").style.display = "block";
+            } else {
+                alert("🚨 YETKİSİZ ERİŞİM! Şifre hatalı.");
+            }
+        }
+
+        function çıkışYap() {
+            document.getElementById("sifre-kutusu").value = "";
+            document.getElementById("login-screen").style.display = "block";
+            document.getElementById("secret-screen").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
